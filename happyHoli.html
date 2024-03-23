@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Holi</title>
+<link rel="stylesheet" href="index.css">
+<style>
+  #name-input {
+    text-align: center;
+  }
+  #welcome-text, #holi-animation {
+    display: none;
+    text-align: center;
+  }
+  .block {
+    position: relative;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 999px;
+    height: 500px; /* Use viewport height for full screen */
+    background-image: url('/holi.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.block:before,
+.block:after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    animation: steam 50s linear infinite;
+}
+
+@keyframes steam {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.block:after {
+    filter: blur(50px);
+}
+
+.usernamelabel {
+    margin-top:18%;
+    display: block;
+    color: white;
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 5px 5px;
+}
+
+#name {
+    display: block;
+    width: 80%; /* Adjust width for responsiveness */
+    max-width: 400px; /* Maximum width */
+    height: 40px;
+    background-color: #292929;
+    border-radius: 30px;
+    border: 2px solid #292929;
+    padding: 0px 12px;
+    outline: none;
+    caret-color: rgb(152, 88, 255);
+    color: rgb(212, 212, 212);
+    font-size: 12px;
+    transition-duration: .2s;
+    margin-left: auto; /* Center input field horizontally */
+    margin-right: auto;
+}
+
+#name:focus,
+#name:valid {
+    border: 2px solid rgb(152, 88, 255);
+    transition-duration: .2s;
+}
+
+button {
+    padding: 14px 40px;
+    margin-top: 2rem; /* Adjust top margin for responsiveness */
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+    display: block;
+    margin-left: auto; /* Center button horizontally */
+    margin-right: auto;
+}
+
+button:hover {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+
+button:active {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .block{
+        display: block;
+        width: 100%;
+        height: 100vh;
+    }
+    .usernamelabel {
+        flex-direction: column; /* Arrange label and input vertically */
+        margin-top: 90%;
+        align-items: center; /* Center items horizontally */
+    }
+
+    #name {
+        width: 90%;
+    }
+
+    button {
+        margin-top: 1rem; /* Reduce top margin for button */
+    }
+    .wn{
+        font-size: 2rem;
+        margin-top: 10rem;
+    }
+    .wn-p{
+        font-size: 1.5rem;
+    }
+    a{
+        margin-top: 2rem;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div id="name-input" class="block">
+  <label for="usernameField" class="usernamelabel label">Your Name : </label>
+  <input type="text" placeholder="@" id="name" name="name" required="required">
+  <button onclick="showHoliAnimation()">Submit</button>
+</div>
+
+<div id="welcome-text" style="margin-top: -10rem;">
+  <h3><p class="wn wn-p">SPIREA ARCH WISHES YOU</p></h3>
+  <h2>HAPPY HOLI !</h2>
+  <h3><span id="welcome-name" class="wn"></span></h3><br><br>
+  <a href="https://spireaarch.in/" style="text-decoration: none; text-transform: none;"><button>Back to Spirea Arch</button></a>
+</div>
+
+<div id="holi-animation"></div>
+
+<audio id="background-music" autoplay loop>
+  <source src="y2mate.com - holi instrumental music  holi nonstop instrumental music  nonstop holi instrumental songs.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  let images=[
+    'url("images/clr01.png")',
+    'url("images/clr02.png")',
+    'url("images/clr02.png")',
+    'url("images/clr03.png")',
+    'url("images/clr04.png")',
+    'url("images/clr05.png")',
+    'url("images/clr06.png")',
+    'url("images/clr07.png")',
+    'url("images/clr08.png")',
+    'url("images/clr09.png")',
+    'url("images/clr10.png")',
+    'url("images/clr11.png")',
+    'url("images/clr12.png")',
+    'url("images/clr13.png")',
+    'url("images/clr14.png")',
+    'url("images/clr15.png")',
+    'url("images/clr16.png")'
+  ];
+
+  function showHoliAnimation() {
+    var name = document.getElementById("name").value;
+    if (name.trim() !== "") {
+      document.getElementById("name-input").style.display = "none";
+      document.getElementById("welcome-text").style.display = "block";
+      document.getElementById("welcome-name").textContent = name;
+      document.getElementById("holi-animation").style.display = "block";
+
+      let body=document.querySelector('body');
+      body.onmousemove=function(e){
+        let x=e.pageX-e.target.offsetLeft;
+        let y=e.pageY-e.target.offsetTop;
+
+        let splash =document.createElement('span');
+        splash.style.left=x+'px';
+        splash.style.top=y+'px';
+
+        let bg=images[Math.floor(Math.random() * images.length)];
+        splash.style.backgroundImage=bg;
+
+        this.appendChild(splash);
+
+        setTimeout(()=>{
+            splash.remove()
+        },2000);
+      };
+
+      // Play background music
+      document.getElementById("background-music").play();
+    } else {
+      alert("Please enter your name.");
+    }
+  }
+</script>
+
+</body>
+</html>

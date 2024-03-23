@@ -22,7 +22,17 @@ h2{
     text-shadow: 0 20px 30px rgba(0,0,0,0,0.25);
 }
 
+h3{
+    color: #fff;
+    font-size: 4rem;
+    z-index: 100000;
+    user-select: none;
+    pointer-events: none;
+    text-shadow: 0 20px 30px rgba(0,0,0,0,0.25);
+}
+
 span{
+    z-index: -1;
     position: absolute;
     pointer-events: none;
     width: 300px;
@@ -31,6 +41,14 @@ span{
     background-repeat: no-repeat;
     /* background: #f00; */
     animation: animate 4s linear infinite;
+}
+
+
+.wn{
+    z-index: 10000000;
+    width: 100%;
+    margin-top: 8rem;
+    /* height: 300px; */
 }
 
 @keyframes animate {
